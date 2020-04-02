@@ -25,9 +25,8 @@ def remove_old_files(path, difference_days_number):
         the_last_create_file = os.path.getmtime(path)
         the_last_create_file_time = datetime.datetime.fromtimestamp(the_last_create_file)
         difference = the_last_create_file_time - create_file_time
-        if difference.days <= difference_days_number:
+        if difference.days > difference_days_number:
             os.remove(file_path)
-            
 
 
 if __name__ == '__main__':
